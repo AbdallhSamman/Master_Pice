@@ -60,10 +60,10 @@ class ReservationController extends Controller
             ->paginate(10, ['*', 'trips.name As tirp_name', 'trip_user.id As reservation_id']);
 
         $guide = User::find($id);
-        $guide_trip = $guide->trip;
+        $guide_course = $guide->trip;
         return  view("publicSite.reservations", [
             'reservations' => $reservations,
-            'guide_trip'  => $guide_trip,
+            'guide_course'  => $guide_course,
         ]);
     }
     public function tripFilter(Request $request, $id)
@@ -79,9 +79,9 @@ class ReservationController extends Controller
                 ->orderBy('trip_user.id', "asc")
                 ->paginate(10, ['*', 'trips.name As tirp_name', 'trip_user.id As reservation_id']);
             $guide = User::find($id);
-            $guide_trip = $guide->trip;
+            $guide_course = $guide->trip;
         }
-        return  view("publicSite.reservations", compact('reservations', 'guide_trip'));
+        return  view("publicSite.reservations", compact('reservations', 'guide_course'));
     }
 
 

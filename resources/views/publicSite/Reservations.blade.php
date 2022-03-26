@@ -26,8 +26,8 @@
                       <div class="rs-select2--light rs-select2--md dropdown d-flex mb-4">
                           <select class="js-select2 mr-2 " name="trip">
                             <option selected>All Trips</option>
-                            @foreach($guide_trip as $guide_trips)
-                              <option>{{$guide_trips->name}}</option>
+                            @foreach($guide_course as $course_guide)
+                              <option>{{$course_guide->name}}</option>
                              @endforeach
                           </select>
                           <div class="dropDownSelect2"></div>
@@ -39,10 +39,10 @@
                       <thead>
                         <tr>
                           <th>ID</th>
-                          <th>Customer Name</th>
-                          <th>Customer Email</th>
-                          <th>Custumer Phone</th>
-                          <th>Trip Name</th>
+                          <th>Student Name</th>
+                          <th>Student Email</th>
+                          <th>Student Phone</th>
+                          <th>Course Name</th>
                           <th>Booking Date</th>
                           <th>Price</th>
                         </tr>

@@ -33,7 +33,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token',   
+        'remember_token',
     ];
 
     /**
@@ -45,13 +45,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function trip() {
-        return $this->hasMany(Trip::class,'guide_id');
+    public function trip()
+    {
+        return $this->hasMany(Trip::class, 'guide_id');
     }
     //many to many
-    public function reservation() {
-        return $this->belongsToMany(Trip::class)->withPivot('id','booking_date','status');
+    public function reservation()
+    {
+        return $this->belongsToMany(Trip::class)->withPivot('id', 'booking_date', 'status');
     }
-
-
 }

@@ -24,24 +24,23 @@ class CategoryController extends Controller
         return view('publicSite.contact');
     }
 
-    public function destination()
+    public function topics()
     {
         $category = Category::all();
-        return view('publicSite.destination', compact('category'));
+        return view('publicSite.topics', compact('category'));
     }
 
     public function homeDestination()
     {
         $category = Category::orderBy('id', 'DESC')->limit(3)->get();
         $trip = Trip::all();
-        $news = Trip::orderBy('id', 'DESC')->limit(3)-> get();
+        $news = Trip::orderBy('id', 'DESC')->limit(3)->get();
 
-        
+
         return view('publicSite.index', compact('category', 'trip', 'news'));
-
     }
 
-    public function index() 
+    public function index()
     {
         $category = Category::all();
         return view('admin.category', compact('category'));
@@ -54,7 +53,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-     return view('admin/categoryCreate');
+        return view('admin/categoryCreate');
     }
 
     /**
@@ -71,12 +70,12 @@ class CategoryController extends Controller
             'category_img' => 'required',
         ]);
 
-     $input = $request->all();
-     if($request->file("category_img")) {
-        $newImageName = time() . '-' . $request->category_img->getClientOriginalName();
-        $request->category_img->move(public_path('uploads'), $newImageName);
-        $input['category_img'] = $newImageName;
-     }
+        $input = $request->all();
+        if ($request->file("category_img")) {
+            $newImageName = time() . '-' . $request->category_img->getClientOriginalName();
+            $request->category_img->move(public_path('uploads'), $newImageName);
+            $input['category_img'] = $newImageName;
+        }
         Category::create($input);
 
         return redirect()->route('categories.index');
@@ -101,7 +100,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $Category)
     {
-        return view('admin/categoryUpdate',compact('Category'));
+        return view('admin/categoryUpdate', compact('Category'));
     }
 
     /**
@@ -118,12 +117,12 @@ class CategoryController extends Controller
             'category_desc' => 'required',
         ]);
 
-     $input = $request->all();
-     if($request->file("category_img")) {
-        $newImageName = time() . '-' . $request->category_img->getClientOriginalName();
-        $request->category_img->move(public_path('uploads'), $newImageName);
-        $input['category_img'] = $newImageName;
-     }
+        $input = $request->all();
+        if ($request->file("category_img")) {
+            $newImageName = time() . '-' . $request->category_img->getClientOriginalName();
+            $request->category_img->move(public_path('uploads'), $newImageName);
+            $input['category_img'] = $newImageName;
+        }
         $Category->update($input);
 
         return redirect()->route('categories.index');
@@ -139,12 +138,9 @@ class CategoryController extends Controller
     {
 
         $Category->delete();
-        return back();//<============
+        return back(); //<============
     }
-    public function createReservation() {
-
-
-
-
+    public function createReservation()
+    {
     }
 }

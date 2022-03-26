@@ -11,15 +11,15 @@ class Category extends Model
     use HasFactory;
 
     protected $fillable = [
-            'id',
-            'category_name',
-            'category_desc',
-            'category_img',
-        ];
+        'id',
+        'category_name',
+        'category_desc',
+        'category_img',
+    ];
 
 
-    public function trip() {
+    public function trip()
+    {
         return $this->hasMany(Trip::class);
     }
-
 }

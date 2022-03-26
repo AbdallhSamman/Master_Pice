@@ -103,8 +103,8 @@
                                 <li class="dropdown current">
                                     <a href={{route("home2")}}>Home</a>
                                 </li>
-                                        <li><a href="{{route("distination")}}">Topics</a> </li>
-                                        <li><a href="{{route("trips-list.index")}}">trips</a> </li>
+                                        <li><a href="{{route("topics")}}">Topics</a> </li>
+                                        <li><a href="{{route("courses.index")}}">trips</a> </li>
                                         <li>  <a href="{{route('tourGuide.index')}}">Instructors</a> </li>
 
 

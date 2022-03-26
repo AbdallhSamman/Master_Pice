@@ -28,6 +28,6 @@ class FilterController extends Controller
 
         $cats = Category::all();
         $trips = Trip::where('name', 'Like', '%' . $request->search . '%')->paginate(500);
-        return view('publicSite.trips-list', compact('trips', 'cats'));
+        return view('publicSite.courses', compact('trips', 'cats'));
     }
 }

@@ -18,7 +18,7 @@ class TripListController extends Controller
         $trips = Trip::paginate(5);
         $cats = Category::all();
         $status = true;
-        return view('publicSite.trips-list', compact('trips', 'cats', 'status'));
+        return view('publicSite.courses', compact('trips', 'cats', 'status'));
     }
 
     /**
@@ -53,7 +53,7 @@ class TripListController extends Controller
         $cats = Category::all();
         $categorty = Category::find($id);
         $trips = $categorty->trip;
-        return view('publicSite.trips-list', compact('trips', 'cats'));
+        return view('publicSite.courses', compact('trips', 'cats'));
     }
 
     /**

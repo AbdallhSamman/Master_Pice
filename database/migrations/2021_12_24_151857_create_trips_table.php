@@ -32,9 +32,9 @@ class CreateTripsTable extends Migration
                 ->on("users")
                 ->onDelete('cascade');
             $table->foreign("category_id")
-                  ->references('id')
-                  ->on("categories")
-                  ->onDelete("cascade");
+                ->references('id')
+                ->on("categories")
+                ->onDelete("cascade");
         });
     }
 

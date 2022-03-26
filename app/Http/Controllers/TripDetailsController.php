@@ -15,7 +15,6 @@ class TripDetailsController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
@@ -47,9 +46,9 @@ class TripDetailsController extends Controller
      */
     public function show($id)
     {
-        $tripDetails=Trip::find($id);
+        $courseDetails = Trip::find($id);
 
-        return view('publicSite.trip-details',compact('tripDetails'));
+        return view('publicSite.course-details', compact('courseDetails'));
     }
 
     /**
@@ -77,7 +76,6 @@ class TripDetailsController extends Controller
      */
     public function update(Request $request, $id)
     {
-
     }
 
     /**

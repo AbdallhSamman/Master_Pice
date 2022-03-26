@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="descrption" content="Tripo is a website for internal tours in Jordan, you can book your tour in an easy way and you can join as guide in our team">
-    <title> Tripo || Internal Tours</title>
+    <title> Noor Academy</title>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
@@ -42,7 +42,7 @@
 
     <link rel="stylesheet" href="{{asset("assets/css/guide_style.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/user_profile.css")}}">
-    <link rel="stylesheet" href="{{asset("assets/css/add_trip.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/css/add_course.css")}}">
 
     @yield('style')
 
@@ -84,8 +84,8 @@
                                 <li class="dropdown current">
                                     <a href={{route("home2")}}>Home</a>
                                 </li>
-                                <li><a href="{{route("distination")}}">Topics</a> </li>
-                                <li><a href="{{route("trips-list.index")}}">trips</a> </li>
+                                <li><a href="{{route("topics")}}">Topics</a> </li>
+                                <li><a href="{{route("courses.index")}}">Courses</a> </li>
                                 <li>  <a href="{{route('tourGuide.index')}}">Instructors</a> </li>
 
                                 @auth

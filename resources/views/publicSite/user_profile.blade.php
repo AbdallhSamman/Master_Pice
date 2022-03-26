@@ -25,11 +25,11 @@
         </ul>
     </div>
 </section>
-<!-- Sahar Start -->
+
 <section class="user_profile">
     <div class="container">
         <div class="row">
-            <!-- Guide Information -->
+  
             <div class="col-4 guide-info">
                 <img src="{{asset('user_images/'. Auth::user()->image)}}" alt="guide_photo" class="user_img">
                 <h2 class="text-center pl-0">{{Auth::user()->name}}</h2>
@@ -51,14 +51,14 @@
                         @endif
                 </div>
             </div>
-            <!-- Guide Trips -->
+
             @if(Auth::user()->role_type == 'guide')
             <div class="col-8 guide-trips">
-                <h1 class="mb-5" style="color:#FFA801">My Trips</h1>
-                <!-- Trips -->
+                <h1 class="mb-5" style="color:#a13b21">My Courses</h1>
+   
                 <div class="trip mt-2">
                     <div class="container">
-                        <!-- Trip Information -->
+               
                         @foreach ($trips as $trip)
                         <div class="row">
                             <div class="col-5">
@@ -67,16 +67,16 @@
                             <div class="col-7">
                                 <h4 style="text-transform: capitalize; color:#555">Name: {{$trip->name}}</h4>
                                 <p class="mypara">Description: {{$trip->description}}</p>
-                                <h6 style="color:#FFA801">Price: {{$trip->price }} JD</h6>
-                                <a href="{{route('trips-details.show',$trip->id)}}"><button class="btn show-trip mt-3">Show Trip</button></a>
-                                <form action="{{route("guideTrip.destroy",$trip->id)}}" method="POST" class='deletion'>
+                                <h6 style="color:#a13b21">Price: {{$trip->price }} JD</h6>
+                                <a href="{{route('course-details.show',$trip->id)}}"><button class="btn show-trip mt-3">Show Course</button></a>
+                                <a href="{{route("guideTrip.edit",$trip->id)}}"><button  style="margin-top: 15px; margin-left: 10px; background-color:#FFA801" class="btn show-trip">Edit Course</button></a>
+                                <form action="{{route("guideTrip.destroy",$trip->id)}}" method="POST" class='deletion' style=" display: contents;">
                                 @csrf
                                 @method("delete")
                                 <button type="submit" class="btn show-trip" style="margin-top: 15px; margin-left: 10px; background-color:#DC3545">
-                                    Delete Trip
+                                    Delete Course
                                 </button>
                             </form>
-                            <a href="{{route("guideTrip.edit",$trip->id)}}"><button  style="margin-top: 15px; margin-left: 10px; background-color:#FFA801" class="btn show-trip">Edit Trip</button></a>
                             </div>
                         </div>
                         <hr>
@@ -99,10 +99,10 @@
                 </div>
                    @endif
 
-                <!-- Trips -->
+             
                 <div class="trip mt-2">
                     <div class="container">
-                        <!-- Trip Information -->
+                 
 
                         @forelse ($reservations as $reservation)
                         <div class="row">
@@ -114,12 +114,12 @@
                                 <p class="mypara">Description: {{$reservation->description}}</p>
                                 <h6 style="color:#FFA801">Price: {{$reservation->price }} JD</h6>
                                 <h6 style="color:#FFA801">Booking Date: {{$reservation->pivot->booking_date }}</h6>
-                                <a href="{{route('trips-details.show',$reservation->id)}}"><button class="btn show-trip mt-3">Show Trip</button></a>
+                                <a href="{{route('course-details.show',$reservation->id)}}"><button class="btn show-trip mt-3">Show course</button></a>
                             </div>
                         </div>
                         <hr>
                         @empty
-                            <h2 style="margin-top:70px">You don't have any reservation, <a href="{{route("trips-list.index")}}">We wish you to book one</a></h2>
+                            <h2 style="margin-top:70px">You don't have any reservation, <a href="{{route("courses.index")}}">We wish you to book one</a></h2>
                         @endforelse
                     </div>
                 </div>
@@ -128,5 +128,5 @@
         </div>
     </div>
 </section>
-<!-- Sahar End -->
+
 @endsection

@@ -29,7 +29,7 @@ class   TourGuideController extends Controller
     {
         //
         $categories = Category::all();
-        return view("publicSite.add_trip", compact('categories'));
+        return view("publicSite.add_course", compact('categories'));
     }
 
     /**

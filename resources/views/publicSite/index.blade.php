@@ -13,7 +13,7 @@
                     {{-- <p style="font-size: 80px">Learn</p> --}}
                     <h2 style="font-size: 75px">Discover yourself</h2>
                     <div style="margin-left: 70px;" >
-                        <a class="thm-btn rounded-pill" href="{{ route('trips-list.index') }}" style="background-color: #852a27;padding: 1rem 1.5rem; margin-top: 0.8rem">Explore Now</a>
+                        <a class="thm-btn rounded-pill" href="{{ route('courses.index') }}" style="background-color: #852a27;padding: 1rem 1.5rem; margin-top: 0.8rem">Explore Now</a>
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@
             <div class="container " style="margin-top: 12%">
                 <div class="block-title text-center">
                    
-                    <h3 class="">trips</h3>
+                    <h3 class="">Courses</h3>
                 </div>
                 <div class="row">
                     @foreach ($category as $categories)
@@ -32,12 +32,12 @@
                         <div class="destinations-three__single">
                             <img style="height: 45vh" src="uploads/{{$categories->category_img}}" alt="">
                             <div class="destinations-three__content">
-                                <h3><a href="{{ route('trips-list.show',$categories->id)}}">{{$categories->category_name}}</a></h3>
+                                <h3><a href="{{ route('courses.show',$categories->id)}}">{{$categories->category_name}}</a></h3>
                             </div>
                             <div class="destinations-three__hover-content" >
-                                <h3><a href="{{ route('trips-list.show',$categories->id)}}">{{$categories->category_name}}</a></h3>
+                                <h3><a href="{{ route('courses.show',$categories->id)}}">{{$categories->category_name}}</a></h3>
                                 <p style="color: #aa4340">{{$categories->trip->count(). ' Course'}}</p>
-                                <a href="{{ route('trips-list.show',$categories->id)}}  " class="destinations-three__link" style="background-color: #b34b47"><i class="tripo-icon-right-arrow" ></i></a>
+                                <a href="{{ route('courses.show',$categories->id)}}  " class="destinations-three__link" style="background-color: #b34b47"><i class="tripo-icon-right-arrow" ></i></a>
                             </div>
                         </div>
                     </div>
@@ -52,9 +52,9 @@
 
         <section class="cta-one cta-one__home-two"  style="background-color: #852a27">
             <div class="container" >
-                <h3>Discover our Newest trips</h3>
+                <h3>Discover our Newest Courses</h3>
                 <div class="cta-one__button-block">
-                    <a href="{{ route('trips-list.index') }}" class="thm-btn cta-one__btn" >Reserve Now!</a>
+                    <a href="{{ route('courses.index') }}" class="thm-btn cta-one__btn" >Reserve Now!</a>
                 </div>
             </div>
         </section>
@@ -63,31 +63,31 @@
             <div class="container">
                 <div class="block-title text-center">
             
-                    <h3>Most Popular trips</h3>
+                    <h3>Most Popular Courses</h3>
                 </div>
 
                 <div class="tour-one__carousel tour-one__carousel-no-overflow thm__owl-carousel  owl-carousel owl-theme" data-options='{"nav": false, "autoplay": true, "autoplayTimeout": 5000, "smartSpeed": 700, "dots": true, "margin": 30, "loop": true, "responsive": { "0": { "items": 1, "nav": true, "navText": ["Prev", "Next"], "dots": false }, "767": { "items": 1, "nav": true, "navText": ["Prev", "Next"], "dots": false }, "991": { "items": 2 }, "1199": { "items": 2 }, "1200": { "items": 3 } }}'>
-                    @foreach ($trip as $trips)
+                    @foreach ($trip as $course)
                     <div class="item">
 
 
                         <div class="tour-one__single">
                             <div class="tour-one__image">
-                                <img style="min-width:35wh; max-height:30vh" src="{{asset('trip_images/'.$trips->image)}}" alt="">
+                                <img style="min-width:35wh; max-height:30vh" src="{{asset('trip_images/'.$course->image)}}" alt="">
                             </div>
 
                             <div class="tour-one__content" style="min-height: 350px">
                                 <ul  class="list-unstyled blog-one__meta">
-                                    <li><a href="{{route('guide',$trips->guide->id)}}"><i></i> {{"instructor: " . $trips->guide->name}}</a></li>
-                                    <li><a><i class="fas fa-calendar-day" style="color: #b34b47"></i> {{$trips->date}}</a></li>
+                                    <li><a href="{{route('guide',$course->guide->id)}}"><i></i> {{"instructor: " . $course->guide->name}}</a></li>
+                                    <li><a><i class="fas fa-calendar-day" style="color: #b34b47"></i> {{$course->date}}</a></li>
                                 </ul>
 
-                                <h3><a href="{{ route('trips-details.show',$trips->id)}}">{{$trips->name}}</a></h3>
-                                <span style="color: rgb(20, 170, 20);font-weight: 700;font-size: 20px">{{$trips->price . "JD"}}</span>
-                                <p>Capacity :{{$trips->max_visitors}} Student</p>
+                                <h3><a href="{{ route('course-details.show',$course->id)}}">{{$course->name}}</a></h3>
+                                <span style="color: rgb(20, 170, 20);font-weight: 700;font-size: 20px">{{$course->price . "JD"}}</span>
+                                <p>Capacity :{{$course->max_visitors}} Student</p>
                                 <ul class="tour-one__meta list-unstyled">
                             
-                                    <li><a href="{{route('trips-list.show',$trips->category->id)}}"><i class="fas fa-book"></i>{{$trips->category->category_name}}</a></li>
+                                    <li><a href="{{route('courses.show',$course->category->id)}}"><i class="fas fa-book"></i>{{$course->category->category_name}}</a></li>
                                 </ul>
                             </div>
 
@@ -114,26 +114,26 @@
             <div class="container">
                 <div class="block-title text-center">
              
-                    <h3>Latest Added trips</h3>
+                    <h3>Latest Added course</h3>
                 </div>
                 <div class="row" >
-                    @foreach ($news as $tripDate)
+                    @foreach ($news as $courseDate)
                     <div class="col-lg-4 wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="000ms" >
                         <div class="blog-one__single" >
                             <div class="blog-one__image">
-                                <img style="min-width:35wh; max-height:30vh" src="{{asset('trip_images/'.$tripDate->image)}}" alt="">
-                                <a href="{{ route('trips-details.show',$tripDate->id)}}"><i class="fa fa-long-arrow-alt-right"></i></a>
+                                <img style="min-width:35wh; max-height:30vh" src="{{asset('trip_images/'.$courseDate->image)}}" alt="">
+                                <a href="{{ route('course-details.show',$courseDate->id)}}"><i class="fa fa-long-arrow-alt-right"></i></a>
                             </div>
                             <div class="blog-one__content" style="min-height:280px">
                                 <ul class="list-unstyled blog-one__meta">
-                                    <li><a href="{{route('guide',$tripDate->guide->id)}}"><i></i> {{"instructor: " . $tripDate->guide->name}}</a></li>
-                                    <li><a><i class="fas fa-calendar-day" style="color: #b34b47"></i> {{$trips->date}}</a></li>
+                                    <li><a href="{{route('guide',$courseDate->guide->id)}}"><i></i> {{"instructor: " . $courseDate->guide->name}}</a></li>
+                                    <li><a><i class="fas fa-calendar-day" style="color: #b34b47"></i> {{$courseDate->date}}</a></li>
 
                                 </ul>
-                                <h3><a href="{{ route('trips-details.show',$tripDate->id)}}">{{$tripDate->name}}</a></h3>
+                                <h3><a href="{{ route('course-details.show',$courseDate->id)}}">{{$courseDate->name}}</a></h3>
                                 <ul class="tour-one__meta list-unstyled">
                      
-                                    <li><a href="{{ route('trips-list.show',$tripDate->category->id)}}"><i class="fas fa-book"></i>{{$tripDate->category->category_name}}</a></li>
+                                    <li><a href="{{ route('courses.show',$courseDate->category->id)}}"><i class="fas fa-book"></i>{{$courseDate->category->category_name}}</a></li>
                                 </ul>
                             </div>
                         </div>
